@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>奶龙美术学院</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #fff;
+      color: #454545;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 280px;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #fff;
+    }
+
+    main {
+      width: min(100% - 40px, 520px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      width: clamp(190px, 48vw, 320px);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .status {
+      position: relative;
+      overflow: hidden;
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+      white-space: nowrap;
+    }
+
+    .status::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        transparent 38%,
+        rgba(255, 255, 255, .18) 43%,
+        rgba(255, 255, 255, .95) 50%,
+        rgba(255, 255, 255, .18) 57%,
+        transparent 62%,
+        transparent 100%
+      );
+      transform: translateX(-110%);
+      animation: shine 1.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      to { transform: translateX(110%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .status::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main aria-live="polite">
+    <img class="logo" src="nai-long-logo.png" alt="奶龙美术学院标志">
+    <div class="status">正在跳转至奶龙美术学院官网...</div>
+  </main>
+
+  <script>
+    // 将此地址替换为奶龙美术学院官网的完整网址。
+    const destination = "https://www.gzarts.edu.cn/";
+    window.setTimeout(() => {
+      window.location.replace(destination);
+    }, 3000);
+  </script>
+</body>
+</html>
+
